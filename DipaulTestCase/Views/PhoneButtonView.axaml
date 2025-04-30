@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DipaulTestCase.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DipaulTestCase.Views.PhoneButtonView"
+             x:DataType="vm:PhoneButtonViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+	  <vm:PhoneButtonViewModel />
+  </Design.DataContext>
+
+	<UserControl.Styles>
+		<Style Selector="Button">
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="Background" Value="Gray" />
+			<Setter Property="BorderBrush" Value="LightGray" />
+			<Setter Property="BorderThickness" Value="1" />
+			<Setter Property="Width" Value="100" />
+			<Setter Property="Height" Value="100" />
+			<Setter Property="Padding" Value="5" />
+			<Setter Property="CornerRadius" Value="10" />
+			<Setter Property="Cursor" Value="Hand" />
+			
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Padding="{TemplateBinding Padding}" CornerRadius="{TemplateBinding CornerRadius}">
+						<Panel>
+							<TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" FontSize="26" />
+
+							<TextBlock Text="{TemplateBinding Tag}" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" />
+						</Panel>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+	</UserControl.Styles>
+
+	<Button x:Name="btDigitButton" />
+</UserControl>

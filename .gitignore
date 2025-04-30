@@ -1,0 +1,6 @@
+.*
+!*.gitignore
+!*.editorconfig
+*.suo
+*/bin
+*/obj
