@@ -23,7 +23,7 @@ namespace DipaulTestCase
                 .AddCommonServices();
 
             IServiceProvider services = collection.BuildServiceProvider();
-            PhoneEmulatorViewModel vm = services.GetRequiredService<PhoneEmulatorViewModel>();
+            PhoneViewModel vm = services.GetRequiredService<PhoneViewModel>();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
@@ -34,7 +34,7 @@ namespace DipaulTestCase
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {
-                singleViewPlatform.MainView = new PhoneEmulatorView
+                singleViewPlatform.MainView = new PhoneView
                 {
                     DataContext = vm
                 };

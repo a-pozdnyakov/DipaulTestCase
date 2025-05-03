@@ -1,3 +1,5 @@
+using DipaulTestCase.Models;
+using DipaulTestCase.Models.Interfaces;
 using DipaulTestCase.Services;
 using DipaulTestCase.Services.Interfaces;
 using DipaulTestCase.ViewModels;
@@ -7,14 +9,16 @@ namespace DipaulTestCase
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddCommonServices(this IServiceCollection collection)
+        public static IServiceCollection AddCommonServices(this IServiceCollection services)
         {
-            collection
-                .AddTransient<PhoneEmulatorViewModel>()
+            services
+                .AddTransient<PhoneViewModel>()
                 .AddTransient<PhoneButtonViewModel>()
-                .AddTransient<IPhoneWithButtonsEmulator, PhoneWithButtonsEmulator>();
+                .AddTransient<IPhone, Phone>()
+                .AddTransient<IPhoneButton, PhoneButton>()
+                .AddSingleton<IPhoneInputSequenceProcessorFactory, PhoneInputSequenceProcessorFactory>();
 
-            return collection;
+            return services;
         }
     }
 }
